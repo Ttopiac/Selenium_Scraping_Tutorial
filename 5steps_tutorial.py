@@ -28,7 +28,6 @@ WebDriverWait(driver, 10).until(
 	EC.presence_of_element_located((By.LINK_TEXT, "In Details"))
 )
 
-
 # # Wait Until the news button is showing and then click
 # # Implicit Wait
 # driver.implicitly_wait(10)
@@ -38,7 +37,7 @@ WebDriverWait(driver, 10).until(
 # STEP 3: Find the element
 ###############################################################################
 element = driver.find_element_by_link_text("In Details")
-print("Link Text: ", element.text)
+print("Successfully locate the element by the Link Text: ", element.text)
 
 ###############################################################################
 # STEP 4 Interact with the element

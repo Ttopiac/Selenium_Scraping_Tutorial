@@ -68,17 +68,17 @@ time.sleep(sleeptime)
 # STEP 2/3/4: Wait / Find the element / Interact with the element
 ###############################################################################
 #Wait Until the All button is showing and then click
-wait.until(
-	EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'All')]"))
-).click()
-#Extract the search results on news section
-wait.until( EC.presence_of_element_located((By.XPATH, "//div[1]/div/a/h3/span")))
-allSearchResults = driver.find_elements_by_xpath("//div[@id='rso']/*/*/div/a")
-for eachresult in allSearchResults:
-	print(eachresult.text)
-	print(eachresult.get_attribute('href'))
-	print("")
-time.sleep(sleeptime)
+# wait.until(
+# 	EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'All')]"))
+# ).click()
+# #Extract the search results on news section
+# wait.until( EC.presence_of_element_located((By.XPATH, "//div[1]/div/a/h3/span")))
+# allSearchResults = driver.find_elements_by_xpath("//div[@id='rso']/*/*/div/a")
+# for eachresult in allSearchResults:
+# 	print(eachresult.text)
+# 	print(eachresult.get_attribute('href'))
+# 	print("")
+# time.sleep(sleeptime)
 
 ###############################################################################
 # STEP 5 Close the browser

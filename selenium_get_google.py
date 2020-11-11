@@ -4,8 +4,10 @@ import time
 
 times = 3
 selenium_time_cost = 0
+op = webdriver.ChromeOptions()
+op.add_argument('headless')
 for i in np.arange(times):
-	driver = webdriver.Chrome()
+	driver = webdriver.Chrome(options=op)
 	selenium_start = time.time()
 	driver.get("https://www.google.com")
 	selenium_end = time.time()
