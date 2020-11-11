@@ -10,6 +10,8 @@ for i in np.arange(times):
 	driver.get("https://www.google.com")
 	selenium_end = time.time()
 	selenium_time_cost += (selenium_end-selenium_start)
+	print(driver)  
+	print(i, "")   
 	driver.close()
 print("Selenium time cost to visit the website: ", selenium_time_cost/times)
 

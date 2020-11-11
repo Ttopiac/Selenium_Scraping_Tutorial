@@ -7,12 +7,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import sys
 
+
 # Set the keyword
 if len(sys.argv)<=1:
 	keyword = "top stories"
-else:
+	sleeptime = 5
+elif len(sys.argv)<=2:
 	keyword = sys.argv[1]
-	element.send_keys(sys.argv[1], Keys.ENTER)
+	sleeptime = 5
+else: 
+	keyword = sys.argv[1]
+	sleeptime = int(sys.argv[2])
 
 ###############################################################################
 # STEP 1: Get to a web page
@@ -26,21 +31,25 @@ driver.get("https://www.google.com")
 ###############################################################################
 # Find the element for givining a keyword of searching
 element = driver.find_element_by_name("q")
-print(element)
+
 ###############################################################################
 # STEP 4 Interact with the element
 ###############################################################################
 # # Google by the key word "top stories"
-element.send_keys(keyword, Keys.ENTER)
+element.send_keys(keyword)
+time.sleep(sleeptime)
+element.send_keys(Keys.ENTER)
 
 ###############################################################################
 # STEP 2/3/4: Wait / Find the element / Interact with the element
 ###############################################################################
 # Wait Until the news button is showing and then click
+time.sleep(sleeptime)
 wait = WebDriverWait(driver, 10)
 wait.until(
 	EC.presence_of_element_located((By.XPATH, "//a[contains(text(),'News')]"))
 ).click()
+
 
 ###############################################################################
 # STEP 2/3/4: Wait / Find the element / Interact with the element
@@ -53,6 +62,7 @@ for eachresult in allSearchResults:
 	print(eachresult.get_attribute('href'))
 	print("")
 print("--------------------------------------------------------------------")
+time.sleep(sleeptime)
 
 ###############################################################################
 # STEP 2/3/4: Wait / Find the element / Interact with the element
@@ -68,12 +78,11 @@ for eachresult in allSearchResults:
 	print(eachresult.text)
 	print(eachresult.get_attribute('href'))
 	print("")
-
+time.sleep(sleeptime)
 
 ###############################################################################
 # STEP 5 Close the browser
 ###############################################################################
-time.sleep(2)
 driver.close()
 
 
