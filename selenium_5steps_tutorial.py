@@ -14,46 +14,46 @@ import numpy as np
 # PATH = "D:\Codes\wdi\chromedriver.exe"
 # driver = webdriver.Chrome(PATH)
 driver = webdriver.Chrome()
+
 # Fun truth: it's the slowest sites evaluated by the following websitein the last 10 days. (2020 OCT 13) 
 # http://internetsupervision.com/scripts/urlcheck/report.aspx?reportid=slowest
 driver.get("https://www.cashdrawers.cn/")
 
 
-###############################################################################
-# STEP 2: Wait
-###############################################################################
-# Explicit Wait
-wait = WebDriverWait(driver, 10)
-wait.until(
-	EC.presence_of_element_located((By.LINK_TEXT, "In Details"))
-)
+# ###############################################################################
+# # STEP 2: Wait
+# ###############################################################################
+# # Explicit Wait
+# WebDriverWait(driver, 10).until(
+# 	EC.presence_of_element_located((By.LINK_TEXT, "In Details"))
+# )
 
 
-# Wait Until the news button is showing and then click
-# Implicit Wait
+# # Wait Until the news button is showing and then click
+# # Implicit Wait
 # driver.implicitly_wait(10)
 
 
-###############################################################################
-# STEP 3: Find the element
-###############################################################################
-element = driver.find_element_by_partial_link_text("In Details")
+# ###############################################################################
+# # STEP 3: Find the element
+# ###############################################################################
+# element = driver.find_element_by_link_text("In Details")
+# print("Link Text: ", element.text)
 
-
-###############################################################################
-# STEP 4 Interact with the element
-###############################################################################
-element.click()
+# ###############################################################################
+# # STEP 4 Interact with the element
+# ###############################################################################
+# element.click()
 
 
 ###############################################################################
 # STEP 5 Close the browser
 ###############################################################################
-time.sleep(1)
+time.sleep(5)
 # Close the windows on which the focus is set
 driver.close()
 
-time.sleep(1)
+time.sleep(5)
 # Close all browser windows
 driver.quit()
 
